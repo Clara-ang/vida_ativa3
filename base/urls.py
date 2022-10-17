@@ -1,10 +1,14 @@
+from django.http import HttpResponse
+from email.header import Header
+from django import views
 from django.urls import path
-from .views import IndexView, HeaderView, RegisterView
+from .views import IndexView, HeaderView, register, MenuView
 
 urlpatterns = [
     path('index/', IndexView.as_view()),
-    path('register/', RegisterView.as_view()),
-    path('header/', HeaderView.as_view()),  
+    path('header/', HeaderView.as_view()), 
+    path('menu/', MenuView.as_view()), 
     #autenticação
-    #path('cadastro/',nomeview.as.view(), name='register' )
+    path('register/', register, name = 'register'),
+    
 ]
